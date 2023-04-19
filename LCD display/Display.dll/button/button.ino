@@ -13,6 +13,7 @@ void setup() {
   lcd.begin(16,2);
   pinMode(buttonPin, INPUT);
   pinMode(buttonNew, INPUT);
+  lcd.print("Congratulations!");
 
   Serial.begin(9600);
 }
@@ -23,7 +24,7 @@ void loop() {
   sprintf(buf, "Old Button: %d\n", buttonOld);
   Serial.print(buf);
   sprintf(buf, "New Button: %d\n", buttonNew);
-  Serial.println(buf);
+  Serial.print(buf);
   Serial.println(Txt);
 
   if (buttonOld == 0 && buttonNew == 1) {
@@ -31,21 +32,21 @@ void loop() {
       lcd.clear();
       delay(1000);
       lcd.print("ButtonPressed!");
-      delay(2000);
+      delay(5000);
       Serial.print("Button pressed!\n");
-      sprintf(Txt,"Text = ON");
+      sprintf(Txt,"Text = ON\n");
       lcd.clear();
       delay(1000);
-      lcd.print("Kossomk!!");
-      delay(3000); 
-      lcd.setCursor(2,1);
-      lcd.print("Ya Khaneeth");
+      lcd.print("Master");
+      //delay(3000); 
+      lcd.setCursor(3,1);
+      lcd.print("Zaki Patel");
       
     }
     else {      
       lcd.clear();
       delay(1000);
-      sprintf(Txt,"Text = OFF");
+      sprintf(Txt,"Text = OFF\n");
     }
     counter++;
   }
