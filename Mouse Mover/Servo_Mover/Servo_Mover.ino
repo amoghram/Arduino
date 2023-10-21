@@ -2,10 +2,10 @@
 #include <ezButton.h>
 
 Servo servo;
-int servoPin = 9;     // The pin connected to the servo
+int servoPin = 13;     // The pin connected to the servo
 char buff[100];
 
-ezButton toggleSwitch(6); 
+ezButton toggleSwitch(2); 
 
 void setup() {
   servo.attach(servoPin);     // Attaches the servo to the specified pin
@@ -39,7 +39,7 @@ void loop() {
   // If the servo is turned on, move it back and forth
   if (state) {
     // Move the servo from 0 to 180 degrees
-    for (int angle = 0; angle <= 180; angle++) {
+    for (int angle = 0; angle <= 50; angle++) {
       // Check the state of the switch inside the loop
       toggleSwitch.loop();
       if (!toggleSwitch.getState()) {
@@ -58,8 +58,8 @@ void loop() {
       return;
     }
     
-    // Move the servo from 180 to 0 degrees
-    for (int angle = 180; angle >= 0; angle--) {
+    // Move the servo from 50 to 0 degrees
+    for (int angle = 50; angle >= 0; angle--) {
       // Check the state of the switch inside the loop
       toggleSwitch.loop();
       if (!toggleSwitch.getState()) {
@@ -71,4 +71,5 @@ void loop() {
       delay(15);           // Delay for smooth movement
     }
   }
+  delay(10000);
 }
